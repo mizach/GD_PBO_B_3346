@@ -44,5 +44,5 @@ const ponsel = new PonselJadul('Ponsel_3346');
 tablet.ambilFoto();
 tablet.bukaBrowser();
 ponsel.panggil();
-console.log(ponsel.nama + 'bisa mengambil foto?' , typeof ponsel.ambilFoto === "function");
-console.log(tablet.nama + 'bisa melakukan panggilan?' , typeof tablet.panggil === "function");
+console.log(ponsel.nama + ' bisa mengambil foto?' , typeof ponsel.ambilFoto === "function");
+console.log(tablet.nama + ' bisa melakukan panggilan?' , typeof tablet.panggil === "function");
