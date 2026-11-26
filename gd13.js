@@ -4,26 +4,49 @@ class Karyawan {
 
   }
 
+  info(){
+    console.log(`Karyawan: ${this.nama}`)
+  }
+}
+
+class KaryawanTetap extends Karyawan{
   hitungLembur(jam) {
   console.log(this.nama + " lembur " + jam + " jam, upah Rp " + (jam * 50000) + ".");
   }
 }
-class Programmer extends Karyawan {}
 
-class Magang extends Karyawan {
-hitungLembur(jam) {
-throw new Error(this.nama + " tidak berhak lembur!");
-
+class KaryawanMagang extends Karyawan{
+  terimaUangSaku(nominal){
+    console.log(`${this.nama} menerima uang saku Rp ${nominal}.`)
+  }
 }
 
+class Programmer extends KaryawanTetap {}
+
+class Magang extends KaryawanMagang {
+  hitungLembur(jam) {
+  throw new Error(this.nama + " tidak berhak lembur!");
+  }
 }
 
-function prosesLemburSemua(daftar) {
-daftar.forEach((x) => x.hitungLembur(3));
+class Desainer extends KaryawanTetap{}
 
+function prosesLembur(daftar) {
+  daftar.forEach((x) => x.hitungLembur(3));
+}
+
+function berikanUangSaku(daftar){
+  daftar.forEach((x) => x.terimaUangSaku(15000))
 }
 
 // Uji coba eksekusi:
-const budi = new Programmer("Budi_XXXX");
-const rina = new Maganq("Rina XXXX");
-prosesLemburSemua( [budi, rina]); // program crash di sini
+const budi = new Programmer("Budi_3346");
+const rina = new Magang ("Rina_3346");
+const sari = new Desainer ("Sari_3346");
+
+budi.info();
+rina.info();
+sari.info();
+prosesLembur([budi,sari]);
+berikanUangSaku([rina]);
+
